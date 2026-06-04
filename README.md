@@ -17,7 +17,7 @@ This repository is intentionally separate from `peer`:
 
 ## Success target
 
-The MemoryBackend goal is benchmark leadership on memory-agent evaluations such as MemoryAgentBench and MemoryArena. See [`docs/success-metrics.md`](docs/success-metrics.md).
+The MemoryBackend goal is benchmark leadership on memory-agent evaluations such as MemoryAgentBench / Agent Memory Benchmark, MemoryArena, and STATE-Bench. See [`docs/success-metrics.md`](docs/success-metrics.md) and [`docs/benchmark-regression-gate.md`](docs/benchmark-regression-gate.md).
 
 ## Current status
 
