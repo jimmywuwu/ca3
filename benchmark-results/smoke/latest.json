@@ -1,6 +1,7 @@
 {
   "benchmarks": [
     {
+      "baseline_score": 0.0,
       "cases": [
         {
           "answer": "ORBITAL-LANTERN",
@@ -18,12 +19,16 @@
         }
       ],
       "metrics": {
-        "accuracy": 1.0
+        "accuracy": 1.0,
+        "num_cases": 1.0,
+        "num_correct": 1.0
       },
       "name": "memoryarena_smoke",
-      "passed": true
+      "passed": true,
+      "score": 1.0
     },
     {
+      "baseline_score": 0.0,
       "cases": [
         {
           "case_id": "held_out_observation_task",
@@ -40,12 +45,16 @@
         }
       ],
       "metrics": {
+        "num_cases": 1.0,
+        "num_correct": 1.0,
         "procedure_recall": 1.0
       },
       "name": "statebench_agent_learning_smoke",
-      "passed": true
+      "passed": true,
+      "score": 1.0
     },
     {
+      "baseline_score": 0.0,
       "cases": [
         {
           "answer": "Cold storage keeps embeddings deterministic for replay audits.",
@@ -59,11 +68,20 @@
         }
       ],
       "metrics": {
-        "gold_containment": 1.0
+        "gold_containment": 1.0,
+        "num_cases": 1.0,
+        "num_correct": 1.0
       },
       "name": "amb_smoke",
-      "passed": true
+      "passed": true,
+      "score": 1.0
     }
   ],
-  "overall_pass": true
+  "overall_pass": true,
+  "score_summary": {
+    "baseline_average_score": 0.0,
+    "benchmark_count": 3,
+    "ca3_average_score": 1.0,
+    "delta_vs_baseline": 1.0
+  }
 }

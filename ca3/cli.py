@@ -16,7 +16,14 @@ def main(argv: list[str] | None = None) -> int:
 
     report = run_all_smokes()
     output_path = write_report(report, args.output)
-    print(f"Wrote CA3 smoke benchmark report: {output_path}")
+    summary = report["score_summary"]
+    print(f"Wrote CA3 smoke benchmark score report: {output_path}")
+    print(
+        "Score: "
+        f"ca3={summary['ca3_average_score']:.3f}, "
+        f"baseline={summary['baseline_average_score']:.3f}, "
+        f"delta={summary['delta_vs_baseline']:.3f}"
+    )
     return 0 if report["overall_pass"] else 1
 
 

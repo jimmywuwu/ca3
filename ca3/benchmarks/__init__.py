@@ -15,9 +15,16 @@ def run_memoryarena_smoke() -> BenchmarkResult:
     retrieved = backend.retrieve("launch codename", top_k=1)
     answer = "ORBITAL-LANTERN" if retrieved and "ORBITAL-LANTERN" in retrieved[0].text else ""
     passed = answer == "ORBITAL-LANTERN"
+    score = 1.0 if passed else 0.0
     return BenchmarkResult(
         name="memoryarena_smoke",
-        metrics={"accuracy": 1.0 if passed else 0.0},
+        metrics={
+            "num_cases": 1.0,
+            "num_correct": score,
+            "accuracy": score,
+        },
+        score=score,
+        baseline_score=0.0,
         passed=passed,
         cases=[
             {
@@ -55,9 +62,16 @@ def run_statebench_smoke() -> BenchmarkResult:
     procedures = retrieve_learnings(query, train_trajectory=train_trajectory, top_k=2)
     expected = "check timestamp semantics before writing observations"
     passed = any(expected in procedure for procedure in procedures)
+    score = 1.0 if passed else 0.0
     return BenchmarkResult(
         name="statebench_agent_learning_smoke",
-        metrics={"procedure_recall": 1.0 if passed else 0.0},
+        metrics={
+            "num_cases": 1.0,
+            "num_correct": score,
+            "procedure_recall": score,
+        },
+        score=score,
+        baseline_score=0.0,
         passed=passed,
         cases=[
             {
@@ -86,9 +100,16 @@ def run_amb_smoke() -> BenchmarkResult:
     answer = retrieved[0].text if retrieved else ""
     gold = "Cold storage keeps embeddings deterministic for replay audits."
     passed = gold in answer
+    score = 1.0 if passed else 0.0
     return BenchmarkResult(
         name="amb_smoke",
-        metrics={"gold_containment": 1.0 if passed else 0.0},
+        metrics={
+            "num_cases": 1.0,
+            "num_correct": score,
+            "gold_containment": score,
+        },
+        score=score,
+        baseline_score=0.0,
         passed=passed,
         cases=[
             {

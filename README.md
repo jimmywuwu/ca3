@@ -31,6 +31,12 @@ Run the first simple no-model scoring-flow smoke harness:
 python3 -m ca3.benchmarks.smoke --output benchmark-results/smoke/latest.json
 ```
 
+The command writes a JSON score report with per-benchmark scores and an aggregate summary, for example:
+
+```text
+Score: ca3=1.000, baseline=0.000, delta=1.000
+```
+
 The harness uses only stdlib code: an in-memory deterministic lexical MemoryBackend, local fixtures, and exact/gold-containment scoring. It exercises three benchmark-shaped flows without external LLM, model, embedding, or network calls:
 
 - MemoryArena-like cross-session state recall.

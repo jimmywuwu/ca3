@@ -71,6 +71,12 @@ def test_run_all_smokes_returns_serializable_report_with_overall_pass(tmp_path):
     loaded = json.loads(output_path.read_text())
 
     assert loaded["overall_pass"] is True
+    assert loaded["score_summary"] == {
+        "benchmark_count": 3,
+        "ca3_average_score": 1.0,
+        "baseline_average_score": 0.0,
+        "delta_vs_baseline": 1.0,
+    }
     assert [item["name"] for item in loaded["benchmarks"]] == [
         "memoryarena_smoke",
         "statebench_agent_learning_smoke",
@@ -95,6 +101,8 @@ def test_cli_writes_json_report(tmp_path):
     assert str(output_path) in completed.stdout
     report = json.loads(output_path.read_text())
     assert report["overall_pass"] is True
+    assert report["score_summary"]["ca3_average_score"] == 1.0
+    assert report["score_summary"]["delta_vs_baseline"] == 1.0
     assert {bench["name"] for bench in report["benchmarks"]} == {
         "memoryarena_smoke",
         "statebench_agent_learning_smoke",
