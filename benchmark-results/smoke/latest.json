@@ -1,0 +1,69 @@
+{
+  "benchmarks": [
+    {
+      "cases": [
+        {
+          "answer": "ORBITAL-LANTERN",
+          "case_id": "cross_session_state_recall",
+          "gold": "ORBITAL-LANTERN",
+          "passed": true,
+          "query": "launch codename",
+          "retrieved": [
+            "User's launch codename is ORBITAL-LANTERN."
+          ],
+          "sessions": [
+            "session-1",
+            "session-2"
+          ]
+        }
+      ],
+      "metrics": {
+        "accuracy": 1.0
+      },
+      "name": "memoryarena_smoke",
+      "passed": true
+    },
+    {
+      "cases": [
+        {
+          "case_id": "held_out_observation_task",
+          "expected_procedure": "check timestamp semantics before writing observations",
+          "passed": true,
+          "query": "held out observation writing task timestamp semantics",
+          "retrieved_procedures": [
+            "check timestamp semantics before writing observations"
+          ],
+          "train_items": [
+            "When creating observations, check timestamp semantics before writing observations.",
+            "When debugging retrieval, prefer deterministic fixtures before adding models."
+          ]
+        }
+      ],
+      "metrics": {
+        "procedure_recall": 1.0
+      },
+      "name": "statebench_agent_learning_smoke",
+      "passed": true
+    },
+    {
+      "cases": [
+        {
+          "answer": "Cold storage keeps embeddings deterministic for replay audits.",
+          "case_id": "document_qa_gold_containment",
+          "gold": "Cold storage keeps embeddings deterministic for replay audits.",
+          "passed": true,
+          "question": "What keeps embeddings deterministic for replay audits?",
+          "retrieved_context": [
+            "Cold storage keeps embeddings deterministic for replay audits."
+          ]
+        }
+      ],
+      "metrics": {
+        "gold_containment": 1.0
+      },
+      "name": "amb_smoke",
+      "passed": true
+    }
+  ],
+  "overall_pass": true
+}

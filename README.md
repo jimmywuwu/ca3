@@ -21,4 +21,24 @@ The MemoryBackend goal is benchmark leadership on memory-agent evaluations such 
 
 ## Current status
 
-Initial workspace marker only. Concrete implementation should be created through bounded `peerworker` execution ticks, not by mixing implementation context directly into Jayda's long-running architecture conversation.
+Initial workspace marker plus a local no-model benchmark smoke harness. Concrete implementation should be created through bounded `peerworker` execution ticks, not by mixing implementation context directly into Jayda's long-running architecture conversation.
+
+## Local benchmark smoke
+
+Run the first simple no-model scoring-flow smoke harness:
+
+```bash
+python3 -m ca3.benchmarks.smoke --output benchmark-results/smoke/latest.json
+```
+
+The harness uses only stdlib code: an in-memory deterministic lexical MemoryBackend, local fixtures, and exact/gold-containment scoring. It exercises three benchmark-shaped flows without external LLM, model, embedding, or network calls:
+
+- MemoryArena-like cross-session state recall.
+- STATE-Bench-like procedural learning retrieval for a held-out task.
+- AMB-like document ingest, retrieval, deterministic answer, and gold containment judging.
+
+Run tests with:
+
+```bash
+python3 -m pytest tests -q
+```
