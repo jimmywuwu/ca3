@@ -21,7 +21,23 @@ The MemoryBackend goal is benchmark leadership on memory-agent evaluations such 
 
 ## Current status
 
-Initial workspace marker plus a local no-model benchmark smoke harness. Concrete implementation should be created through bounded `peerworker` execution ticks, not by mixing implementation context directly into Jayda's long-running architecture conversation.
+Initial workspace marker plus local no-model benchmark harnesses. Concrete implementation should be created through bounded `peerworker` execution ticks, not by mixing implementation context directly into Jayda's long-running architecture conversation.
+
+## AMB-compatible local fixture scoring
+
+Run the deterministic no-model AMB-compatible fixture scorer:
+
+```bash
+python3 -m ca3.benchmarks.amb_local --output benchmark-results/amb-local/latest.json
+```
+
+This command writes a JSON score report with `memory_provider='ca3-local'`, `mode='agent'`, `dataset='amb_local_fixture'`, aggregate accuracy, no-memory baseline accuracy, `delta_vs_baseline`, timing/context metrics, and per-query results. It uses the Open Memory Benchmark provider method shapes (`prepare`, `ingest`, `retrieve`, `direct_answer`) around the local in-memory backend, but it is not an official AMB / Open Memory Benchmark leaderboard run. It does not call Gemini, external LLMs, embedding services, APIs, or the official OMB CLI.
+
+Example output:
+
+```text
+Score: ca3=1.000, baseline=0.000, delta=1.000
+```
 
 ## Local benchmark smoke
 

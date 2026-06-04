@@ -1,0 +1,94 @@
+{
+  "accuracy": 1.0,
+  "avg_context_tokens": 13.5,
+  "avg_retrieve_time_ms": 0.028861500140919816,
+  "benchmark_family": "agent-memory-benchmark",
+  "correct": 4,
+  "dataset": "amb_local_fixture",
+  "delta_vs_baseline": 1.0,
+  "memory_provider": "ca3-local",
+  "mode": "agent",
+  "no_memory_baseline": {
+    "accuracy": 0.0,
+    "answer_strategy": "empty_no_memory_answer",
+    "correct": 0,
+    "total_queries": 4
+  },
+  "official_leaderboard": false,
+  "per_query": [
+    {
+      "answer": "Mira prefers green tea before reviews.",
+      "baseline_answer": "",
+      "baseline_passed": false,
+      "context_text": "Mira prefers green tea before reviews.\nMira schedules database maintenance on Tuesday nights.",
+      "context_tokens": 13,
+      "gold": "Mira prefers green tea before reviews.",
+      "judge": "exact",
+      "passed": true,
+      "query": "What does Mira prefer before reviews?",
+      "query_id": "mira_review_preference",
+      "retrieve_time_ms": 0.02523500006645918,
+      "retrieved_ids": [
+        "mira-review-tea",
+        "mira-db-window"
+      ],
+      "user_id": "mira"
+    },
+    {
+      "answer": "Mira schedules database maintenance on Tuesday nights.",
+      "baseline_answer": "",
+      "baseline_passed": false,
+      "context_text": "Mira schedules database maintenance on Tuesday nights.\nMira prefers green tea before reviews.",
+      "context_tokens": 13,
+      "gold": "Tuesday nights",
+      "judge": "gold_containment",
+      "passed": true,
+      "query": "When does Mira schedule database maintenance?",
+      "query_id": "mira_maintenance_window",
+      "retrieve_time_ms": 0.06577399835805409,
+      "retrieved_ids": [
+        "mira-db-window",
+        "mira-review-tea"
+      ],
+      "user_id": "mira"
+    },
+    {
+      "answer": "Noah requires checksum verification before deploys.",
+      "baseline_answer": "",
+      "baseline_passed": false,
+      "context_text": "Noah requires checksum verification before deploys.\nNoah keeps hot cache TTL at fifteen minutes.",
+      "context_tokens": 14,
+      "gold": "checksum verification",
+      "judge": "gold_containment",
+      "passed": true,
+      "query": "What verification does Noah require before deploys?",
+      "query_id": "noah_deploy_requirement",
+      "retrieve_time_ms": 0.011476000508992001,
+      "retrieved_ids": [
+        "noah-deploy-check",
+        "noah-cache-policy"
+      ],
+      "user_id": "noah"
+    },
+    {
+      "answer": "Noah keeps hot cache TTL at fifteen minutes.",
+      "baseline_answer": "",
+      "baseline_passed": false,
+      "context_text": "Noah keeps hot cache TTL at fifteen minutes.\nNoah requires checksum verification before deploys.",
+      "context_tokens": 14,
+      "gold": "Noah keeps hot cache TTL at fifteen minutes.",
+      "judge": "exact",
+      "passed": true,
+      "query": "What hot cache TTL does Noah keep?",
+      "query_id": "noah_cache_ttl",
+      "retrieve_time_ms": 0.012961001630173996,
+      "retrieved_ids": [
+        "noah-cache-policy",
+        "noah-deploy-check"
+      ],
+      "user_id": "noah"
+    }
+  ],
+  "scoring_mode": "local/no-model",
+  "total_queries": 4
+}
