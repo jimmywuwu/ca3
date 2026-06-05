@@ -1,7 +1,7 @@
 {
   "accuracy": 1.0,
   "avg_context_tokens": 13.5,
-  "avg_retrieve_time_ms": 0.028861500140919816,
+  "avg_retrieve_time_ms": 0.009725500035528967,
   "benchmark_family": "agent-memory-benchmark",
   "correct": 4,
   "dataset": "amb_local_fixture",
@@ -27,7 +27,7 @@
       "passed": true,
       "query": "What does Mira prefer before reviews?",
       "query_id": "mira_review_preference",
-      "retrieve_time_ms": 0.02523500006645918,
+      "retrieve_time_ms": 0.015652999991289107,
       "retrieved_ids": [
         "mira-review-tea",
         "mira-db-window"
@@ -45,7 +45,7 @@
       "passed": true,
       "query": "When does Mira schedule database maintenance?",
       "query_id": "mira_maintenance_window",
-      "retrieve_time_ms": 0.06577399835805409,
+      "retrieve_time_ms": 0.008718000117369229,
       "retrieved_ids": [
         "mira-db-window",
         "mira-review-tea"
@@ -63,7 +63,7 @@
       "passed": true,
       "query": "What verification does Noah require before deploys?",
       "query_id": "noah_deploy_requirement",
-      "retrieve_time_ms": 0.011476000508992001,
+      "retrieve_time_ms": 0.0071859999479784165,
       "retrieved_ids": [
         "noah-deploy-check",
         "noah-cache-policy"
@@ -81,7 +81,7 @@
       "passed": true,
       "query": "What hot cache TTL does Noah keep?",
       "query_id": "noah_cache_ttl",
-      "retrieve_time_ms": 0.012961001630173996,
+      "retrieve_time_ms": 0.007345000085479114,
       "retrieved_ids": [
         "noah-cache-policy",
         "noah-deploy-check"
