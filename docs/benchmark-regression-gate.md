@@ -148,11 +148,13 @@ For every meaningful MemoryBackend design revision:
 
 ## Suggested maturity ladder
 
-### Phase A: Local smoke gates
+### Phase A: Interface smoke gates, not benchmark evidence
 
 - MemoryArena dataset adapter tests;
 - AMB provider interface tests with inline fixtures;
 - STATE-Bench learning retrieval hook tests without full expensive runs.
+
+These gates may emit local fixture scores, but those scores are only `interface_smoke`. They must not be reported as benchmark progress or compared to benchmark baselines.
 
 ### Phase B: Cheap public-harness subsets
 

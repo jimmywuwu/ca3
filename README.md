@@ -23,21 +23,25 @@ The MemoryBackend goal is benchmark leadership on memory-agent evaluations such 
 
 Initial workspace marker plus local no-model benchmark harnesses. Concrete implementation should be created through bounded `peerworker` execution ticks, not by mixing implementation context directly into Jayda's long-running architecture conversation.
 
-## AMB-compatible local fixture scoring
+## AMB interface smoke gate, not benchmark evidence
 
-Run the deterministic no-model AMB-compatible fixture scorer:
+Run the deterministic no-model AMB-shaped fixture scorer only to verify the provider interface and report plumbing:
 
 ```bash
 python3 -m ca3.benchmarks.amb_local --output benchmark-results/amb-local/latest.json
 ```
 
-This command writes a JSON score report with `memory_provider='ca3-local'`, `mode='agent'`, `dataset='amb_local_fixture'`, aggregate accuracy, no-memory baseline accuracy, `delta_vs_baseline`, timing/context metrics, and per-query results. It uses the Open Memory Benchmark provider method shapes (`prepare`, `ingest`, `retrieve`, `direct_answer`) around the local in-memory backend, but it is not an official AMB / Open Memory Benchmark leaderboard run. It does not call Gemini, external LLMs, embedding services, APIs, or the official OMB CLI.
+This command writes a local fixture report with `memory_provider='ca3-local'`, `mode='agent'`, `dataset='amb_local_fixture'`, aggregate accuracy, no-memory baseline accuracy, `delta_vs_baseline`, timing/context metrics, and per-query results. It uses the Open Memory Benchmark provider method names (`prepare`, `ingest`, `retrieve`, `direct_answer`) around the local in-memory backend.
 
-Example output:
+This is **not benchmark evidence**. The fixture documents and questions are handcrafted in this repo, it does not call Gemini, it does not use a public AMB dataset, and it does not run the official Open Memory Benchmark CLI. Treat any `Score: ca3=1.000` output here as `interface_smoke`, not as AMB progress.
 
-```text
-Score: ca3=1.000, baseline=0.000, delta=1.000
+Real AMB evidence must come from `vectorize-io/open-memory-benchmark`, for example a pinned run such as:
+
+```bash
+uv run amb run --dataset personamem --domain 32k --memory ca3 --query-limit 20
 ```
+
+See [`docs/official-benchmark-integration-plan.md`](docs/official-benchmark-integration-plan.md).
 
 ## Local benchmark smoke
 
